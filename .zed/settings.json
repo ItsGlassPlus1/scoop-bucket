@@ -1,0 +1,43 @@
+{
+    "languages": {
+        "PowerShell": {
+            "format_on_save": "on",
+            "formatter": {
+                "external": {
+                    "command": "pwsh",
+                    "arguments": [
+                        "-NoProfile",
+                        "-Command",
+                        "Invoke-Formatter -ScriptDefinition $ZED_FILE -Settings './PSScriptAnalyzerSettings.psd1'",
+                    ],
+                },
+            },
+        },
+        "JSON": {
+            "language_servers": ["json-language-server", "..."],
+        },
+    },
+    "lsp": {
+        "json-language-server": {
+            "settings": {
+                "json": {
+                    "schemas": [
+                        {
+                            "fileMatch": ["bucket/**/*.json"],
+                            "url": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+                        },
+                    ],
+                },
+            },
+        },
+    },
+    "ensure_final_newline_on_save": true,
+    "file_scan_exclusions": [
+        "**/.git",
+        "**/.svn",
+        "**/.hg",
+        "**/CVS",
+        "**/.DS_Store",
+        "**/tmp",
+    ],
+}
